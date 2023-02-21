@@ -28,7 +28,7 @@
 
 **Library |** React, SWR, tailwindCSS, react-hook-form
 
-**Build |** Vite, Webpack, Babel
+**Build |** MSW, Vite, Webpack, Babel
 
 
 ### 🧷 백엔드
