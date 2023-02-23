@@ -30,7 +30,7 @@ https://www.notion.so/659f3f9d0a41440eb9cd9076047a2ed9?v=03737c8453d8416d9cf91d1
 
 **Library |** React, SWR, tailwindCSS, react-hook-form
 
-**Build |** MSW, Vite, Webpack, Babel
+**Build |** MSW, Vite, Babel
 
 
 ### 🧷 백엔드
