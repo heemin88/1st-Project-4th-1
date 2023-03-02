@@ -36,11 +36,11 @@ https://www.notion.so/659f3f9d0a41440eb9cd9076047a2ed9?v=03737c8453d8416d9cf91d1
 ### 🧷 백엔드
 
   
-**Language |** 
+**Language |** Java 
 
-**Framework |** 
+**Framework |** SpringBoot
 
-**Build Tool |** 
+**Build Tool |** Gradle
 
 **Docs |** 
 
