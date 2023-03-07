@@ -39,6 +39,6 @@ public class Board {
 
 
     @Enumerated(EnumType.STRING)
-    private BoardType status; // Question,
+    private com.backend.back.Domain.board.BoardType status; // Question,
 
 }
