@@ -1,6 +1,6 @@
 package com.backend.back.repository;
 
-import com.backend.back.domain.User;
+import com.backend.back.Domain.user.User;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.PersistenceContext;
 import org.springframework.stereotype.Repository;

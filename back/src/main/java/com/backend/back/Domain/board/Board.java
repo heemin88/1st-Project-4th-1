@@ -1,13 +1,12 @@
 package com.backend.back.Domain.board;
 
 import com.backend.back.Domain.comment.Comment;
-import com.backend.back.member.Member;
+import com.backend.back.Domain.user.User;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
@@ -16,17 +15,17 @@ import java.util.List;
 @Getter
 @Setter
 @NoArgsConstructor
-@Table(name="BOARD")
+@Table(name="board")
 public class Board {
 
     @Id
     @GeneratedValue
-    @Column(name="BOARD_ID")
+    @Column(name="board_id")
     private Long id;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name="MEMBER_ID")
-    private Member member;
+    @JoinColumn(name="memeber_id")
+    private User user;
 
     @OneToMany(mappedBy = "board",cascade = CascadeType.ALL)
     private List<Comment> commentList=new ArrayList<>();

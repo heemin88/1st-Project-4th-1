@@ -1,16 +1,17 @@
-package com.backend.back.domain;
+package com.backend.back.Domain.problem;
 
+import com.backend.back.Domain.user.User;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
 
 import java.time.LocalDateTime;
-import java.util.Date;
 
 @Entity
 @Getter @Setter
-@Table(name="orders")
+@Table(name="problem")
 public class Problem {
+
     @Id @GeneratedValue
     @Column(name ="problem_id")
     private Long id;

@@ -1,4 +1,4 @@
-package com.backend.back.domain;
+package com.backend.back.Domain.problem;
 
 import jakarta.persistence.*;
 import lombok.Getter;
@@ -8,7 +8,7 @@ import lombok.Setter;
 import java.util.ArrayList;
 import java.util.List;
 
-@Entity
+@Entity(name="LevelProblem")
 @Getter
 @Setter
 @NoArgsConstructor //빈 생성자를 만드는 어노테이션

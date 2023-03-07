@@ -1,5 +1,8 @@
-package com.backend.back.domain;
+package com.backend.back.Domain.user;
 
+import com.backend.back.Domain.board.Board;
+import com.backend.back.Domain.comment.Comment;
+import com.backend.back.Domain.problem.Problem;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -26,10 +29,10 @@ public class User {
     @OneToMany(mappedBy = "user")
     private List<Problem> problems = new ArrayList<>();
 
-    @OneToMany(mappedBy = "post")
+    @OneToMany(mappedBy = "user")
     private List<Board> posts = new ArrayList<>();
 
-    @OneToMany(mappedBy = "comment")
+    @OneToMany(mappedBy = "user")
     private List<Comment> comments = new ArrayList<>();
 
 
