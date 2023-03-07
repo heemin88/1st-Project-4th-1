@@ -15,7 +15,6 @@ import java.util.List;
 @Getter
 @Setter
 @NoArgsConstructor
-@Table(name="board")
 public class Board {
 
     @Id
@@ -24,7 +23,7 @@ public class Board {
     private Long id;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name="memeber_id")
+    @JoinColumn(name="user_id")
     private User user;
 
     @OneToMany(mappedBy = "board",cascade = CascadeType.ALL)

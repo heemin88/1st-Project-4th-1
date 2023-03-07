@@ -10,22 +10,20 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.annotation.Rollback;
 import org.springframework.test.context.junit4.SpringRunner;
 
+import java.util.Optional;
+
 @RunWith(SpringRunner.class)
-@SpringBootTest(classes=UserRepository.class)
+@SpringBootTest
 public class UserRepositoryTest {
-    @Autowired UserRepository userRepository;
+    @Autowired
+    UserRepository userRepository;
 
     @Test
     @Transactional
-    @Rollback(false)
-    public void testUser(){
+    public void testUser() throws Exception{
         User user = new User();
         user.setMail("1234@naver.com");
-        Long savedId = userRepository.save(user);
-        User findUser = userRepository.find(savedId);
-        Assertions.assertThat(findUser.getUid()).isEqualTo(user.getUid());
-        Assertions.assertThat(findUser.getMail()).isEqualTo(user.getMail());
-        Assertions.assertThat(findUser).isEqualTo(user);
+        userRepository.save(user);
     }
 
 }

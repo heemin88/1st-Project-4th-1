@@ -3,13 +3,14 @@ package com.backend.back.Domain.problem;
 import com.backend.back.Domain.user.User;
 import jakarta.persistence.*;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import java.time.LocalDateTime;
 
 @Entity
 @Getter @Setter
-@Table(name="problem")
+@NoArgsConstructor
 public class Problem {
 
     @Id @GeneratedValue
