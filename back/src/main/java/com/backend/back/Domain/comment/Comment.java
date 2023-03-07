@@ -1,7 +1,7 @@
 package com.backend.back.Domain.comment;
 
 import com.backend.back.Domain.board.Board;
-import com.backend.back.member.Member;
+import com.backend.back.Domain.user.User;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -13,20 +13,21 @@ import java.time.LocalDateTime;
 @Getter
 @Setter
 @NoArgsConstructor
+
 public class Comment {
 
     @Id
     @GeneratedValue
-    @Column(name="COMMENT_ID")
+    @Column(name="comment_id")
     private Long id;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name="BOARD_ID")
+    @JoinColumn(name="board_id")
     private Board board;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name="MEMBER_ID")
-    private Member member;
+    @JoinColumn(name="user_id")
+    private User user;
 
     private String description;
     private LocalDateTime created_time;
