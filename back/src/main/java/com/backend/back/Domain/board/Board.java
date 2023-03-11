@@ -18,12 +18,12 @@ import java.util.List;
 public class Board {
 
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name="board_id")
     private Long id;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name="user_id")
+    @JoinColumn(name="user_id",insertable = false, updatable = false)
     private User user;
 
     @OneToMany(mappedBy = "board",cascade = CascadeType.ALL)
@@ -39,4 +39,12 @@ public class Board {
     @Enumerated(EnumType.STRING)
     private com.backend.back.Domain.board.BoardType status; // Question,
 
+    public Board(User user, String title, String description, LocalDateTime created_date, LocalDateTime modified_date, Integer view_count) {
+        this.user = user;
+        this.title = title;
+        this.description = description;
+        this.created_date = created_date;
+        this.modified_date = modified_date;
+        this.view_count = view_count;
+    }
 }

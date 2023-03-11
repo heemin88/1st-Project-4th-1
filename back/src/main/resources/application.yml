@@ -4,6 +4,13 @@ spring:
     username: sa
     password:
       driver-class-name: org.h2.Driver
+
+      h2:
+      console:
+      enabled: true
+      settings:
+      web-allow-others: true  # 추가
+
   jpa:
     hibernate:
       ddl-auto: create

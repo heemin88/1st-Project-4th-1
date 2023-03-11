@@ -14,7 +14,7 @@ import java.util.List;
 @NoArgsConstructor //빈 생성자를 만드는 어노테이션
 public class LevelProblem {
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name ="levelProblem_id")
     private Long id;
     private String level;
