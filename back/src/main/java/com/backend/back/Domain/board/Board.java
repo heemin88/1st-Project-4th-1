@@ -23,7 +23,6 @@ public class Board {
     private Long id;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name="user_id",insertable = false, updatable = false)
     private User user;
 
     @OneToMany(mappedBy = "board",cascade = CascadeType.ALL)

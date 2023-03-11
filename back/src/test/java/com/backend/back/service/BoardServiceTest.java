@@ -19,11 +19,23 @@ public class BoardServiceTest {
     @Autowired
     BoardService boardService;
 
+    @Autowired
+    UserService userService;
+
     @Test
     public void 게시물등록() throws Exception {
         User user=new User("hys3396","1234","1",3);
-        Board board=new Board(user,"hello","gg", LocalDateTime.now(),LocalDateTime.now(),0);
-        boardService.register_Board(user,board);
+        userService.join(user);
+
+        Board board1=new Board(user,"hello","gg", LocalDateTime.now(),LocalDateTime.now(),0);
+        boardService.register_Board(user,board1);
+
+        Board board2=new Board(user,"hello","gg", LocalDateTime.now(),LocalDateTime.now(),0);
+        Board board3=new Board(user,"hello","gg", LocalDateTime.now(),LocalDateTime.now(),0);
+        Board board4=new Board(user,"hello","gg", LocalDateTime.now(),LocalDateTime.now(),0);
+        boardService.register_Board(user,board2);
+        boardService.register_Board(user,board3);
+        boardService.register_Board(user,board4);
     }
 
 }

@@ -15,8 +15,8 @@ import java.util.List;
 @Getter
 @Setter
 @NoArgsConstructor //빈 생성자를 만드는 어노테이션
-@Table(name = "user")
 public class User {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name="user_id")
