@@ -35,8 +35,10 @@ public class User {
     @OneToMany(mappedBy = "user")
     private List<Comment> comments = new ArrayList<>();
 
-
-
-
-
+    public User(String mail, String password, String level, int problem_count) {
+        this.mail = mail;
+        this.password = password;
+        this.level = level;
+        this.problem_count = problem_count;
+    }
 }
