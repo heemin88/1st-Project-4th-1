@@ -20,7 +20,7 @@ public class User {
     @Id
     @GeneratedValue
     @Column(name="user_id")
-    private long uid;
+    private long id;
     private String mail;
     private String password;
     private String level;
