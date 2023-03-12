@@ -31,5 +31,16 @@ public class UserServiceTest {
         // Then
         assertEquals(user,userRepository.findById(savedId));
     }
-
+    @Test(expected = IllegalStateException.class) public void 중복_회원_예외() throws Exception {
+        //Given
+        User user1 = new User();
+        user1.setMail("kim");
+        User user2 = new User();
+        user2.setMail("kim");
+        //When
+        userService.join(user1);
+        userService.join(user2); //예외가 발생해야 한다.
+        //Then
+        fail("예외가 발생해야함");
+    }
 }

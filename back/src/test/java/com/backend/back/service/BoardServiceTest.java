@@ -1,25 +1,28 @@
 package com.backend.back.service;
 
+import com.backend.back.BackApplication;
 import com.backend.back.Domain.board.Board;
 import com.backend.back.Domain.user.User;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.test.context.junit4.SpringRunner;
 
 import java.time.LocalDateTime;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-@SpringBootTest
+
 @RunWith(SpringRunner.class)
+@SpringBootTest(classes = BackApplication.class)
 public class BoardServiceTest {
 
-    @Autowired
+    @MockBean
     BoardService boardService;
 
-    @Autowired
+    @MockBean
     UserService userService;
 
     @Test

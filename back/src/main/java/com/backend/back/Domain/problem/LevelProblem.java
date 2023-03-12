@@ -8,7 +8,7 @@ import lombok.Setter;
 import java.util.ArrayList;
 import java.util.List;
 
-@Entity(name="LevelProblem")
+@Entity
 @Getter
 @Setter
 @NoArgsConstructor //빈 생성자를 만드는 어노테이션
@@ -17,7 +17,9 @@ public class LevelProblem {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name ="levelProblem_id")
     private Long id;
-    private String level;
+
+    @Enumerated(EnumType.STRING)
+    private LevelProblemType level; // PLATINUM,GOLD,SILVER,BRONZE
 
     @OneToMany(mappedBy = "levelProblem")
     private List<Problem> problem = new ArrayList<>();
