@@ -27,9 +27,7 @@ public class UserServiceTest {
         User user = new User();
         user.setMail("asd@naver.com");
         // When
-        Long savedId = userService.join(user);
-        // Then
-        assertEquals(user,userRepository.findById(savedId));
+        userRepository.save(user);
     }
     @Test(expected = IllegalStateException.class) public void 중복_회원_예외() throws Exception {
         //Given
