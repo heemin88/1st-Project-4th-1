@@ -19,10 +19,10 @@ import static org.junit.jupiter.api.Assertions.*;
 @SpringBootTest(classes = BackApplication.class)
 public class BoardServiceTest {
 
-    @MockBean
+    @Autowired
     BoardService boardService;
 
-    @MockBean
+    @Autowired
     UserService userService;
 
     @Test

@@ -10,7 +10,6 @@ import java.util.Optional;
 
 @Repository
 public interface BoardRepository extends JpaRepository<Board,Long> {
-
     Board findBoardById(Long id);
     List<Board> findBoardsByUser(User user);
 }

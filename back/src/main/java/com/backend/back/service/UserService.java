@@ -23,7 +23,6 @@ public class UserService{
      */
     @Transactional //변경
     public Long join(User user) {
-
         validateDuplicateMember(user); //중복회원검증
         userRepository.save(user);
         return user.getId();
