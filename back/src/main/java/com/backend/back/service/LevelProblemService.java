@@ -18,17 +18,7 @@ import java.util.List;
 public class LevelProblemService {
     final private LevelProblemRepository levelProblemRepository;
 
-    /**
-     * 문제 등록 Service
-     */
-    @Transactional
-    public  Long register_problems(List<Problem> problems, LevelProblemType level) {
-        LevelProblem levelProblem = new LevelProblem();
-        levelProblem.setProblem(problems);
-        levelProblem.setLevel(level);
-        levelProblemRepository.save(levelProblem);
-        return levelProblem.getId();
-    }
+
     /**
      * 문제 추가
      */

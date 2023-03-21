@@ -47,7 +47,7 @@ public class UserService{
 
         List<Board> posts = user.getPosts();
         posts.clear();
-        ;
+
 
         userRepository.delete(user);
     }
