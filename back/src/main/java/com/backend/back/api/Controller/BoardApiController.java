@@ -28,7 +28,6 @@ public class BoardApiController {
 
     private final UserService userService;
     private final BoardService boardService;
-
     private final CommentService commentService;
 
     /**
