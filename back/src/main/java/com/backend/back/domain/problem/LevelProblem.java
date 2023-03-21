@@ -1,4 +1,4 @@
-package com.backend.back.Domain.problem;
+package com.backend.back.domain.problem;
 
 import jakarta.persistence.*;
 import lombok.Getter;

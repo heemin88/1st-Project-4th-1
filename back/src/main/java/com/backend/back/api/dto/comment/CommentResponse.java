@@ -1,8 +1,6 @@
 package com.backend.back.api.dto.comment;
 
-import com.backend.back.Domain.board.Board;
-import com.backend.back.Domain.comment.Comment;
-import com.backend.back.api.dto.board.BoardResponse;
+import com.backend.back.domain.comment.Comment;
 import lombok.Data;
 
 @Data

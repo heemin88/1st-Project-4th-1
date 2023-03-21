@@ -1,7 +1,7 @@
 package com.backend.back.repository;
 
-import com.backend.back.Domain.board.Board;
-import com.backend.back.Domain.user.User;
+import com.backend.back.domain.board.Board;
+import com.backend.back.domain.user.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

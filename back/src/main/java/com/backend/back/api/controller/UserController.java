@@ -1,17 +1,14 @@
-package com.backend.back.controller;
+package com.backend.back.api.controller;
 
-import com.backend.back.Domain.problem.LevelProblemType;
-import com.backend.back.Domain.user.User;
+import com.backend.back.domain.problem.LevelProblemType;
+import com.backend.back.domain.user.User;
 import com.backend.back.model.response.CommonResult;
 import com.backend.back.model.response.ListResult;
 import com.backend.back.model.response.SingleResult;
-import com.backend.back.repository.UserRepository;
 import com.backend.back.service.ResponseService;
 import com.backend.back.service.UserService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
-
-import java.util.List;
 
 @RequiredArgsConstructor
 @RestController // 결과값을 JSON으로 출력함

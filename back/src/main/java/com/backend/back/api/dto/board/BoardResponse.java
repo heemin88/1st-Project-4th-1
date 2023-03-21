@@ -1,9 +1,7 @@
 package com.backend.back.api.dto.board;
 
-import com.backend.back.Domain.board.Board;
+import com.backend.back.domain.board.Board;
 import lombok.Data;
-
-import java.util.List;
 
 @Data
 public class BoardResponse {
