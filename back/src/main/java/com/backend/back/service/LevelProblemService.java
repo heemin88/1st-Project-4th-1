@@ -1,15 +1,14 @@
 package com.backend.back.service;
 
-import com.backend.back.Domain.board.Board;
 import com.backend.back.Domain.problem.LevelProblem;
 import com.backend.back.Domain.problem.LevelProblemType;
 import com.backend.back.Domain.problem.Problem;
-import com.backend.back.Domain.user.User;
 import com.backend.back.repository.LevelProblemRepository;
 import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Service
@@ -18,6 +17,23 @@ import java.util.List;
 public class LevelProblemService {
     final private LevelProblemRepository levelProblemRepository;
 
+    /**
+     * 문제 등록 Service
+     */
+//    @Transactional
+//    public  Long register_problems() {
+//        LevelProblem levelProblem = new LevelProblem();
+//        List<Problem> problems = new ArrayList<>();
+//        Problem problem = Problem.builder(
+//                .problem_order(1)
+//                .url("https://www.acmicpc.net/problem/1000")
+//                .
+//        ).build();
+//        levelProblem.setProblem(problems);
+//        levelProblem.setLevel(LevelProblemType.BRONZE);
+//        levelProblemRepository.save(levelProblem);
+//        return levelProblem.getId();
+//    }
 
     /**
      * 문제 추가
@@ -31,10 +47,9 @@ public class LevelProblemService {
         return levelProblem.getId();
     }
     /**
-     * 공통 Service
+     * level별 문제 조회 서비스
      */
-
-    public LevelProblem findLevelProblemById(Long id) {
-        return levelProblemRepository.findLevelProblemById(id);
+    public List<Problem> findLevelProblemByLevel(LevelProblemType level){
+        return levelProblemRepository.findLevelProblemByLevel(level);
     }
 }

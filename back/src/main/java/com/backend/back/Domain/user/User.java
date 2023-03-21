@@ -2,11 +2,10 @@ package com.backend.back.Domain.user;
 
 import com.backend.back.Domain.board.Board;
 import com.backend.back.Domain.comment.Comment;
+import com.backend.back.Domain.problem.LevelProblemType;
 import com.backend.back.Domain.problem.Problem;
 import jakarta.persistence.*;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -15,7 +14,7 @@ import java.util.UUID;
 @Entity
 @Getter
 @Setter
-@NoArgsConstructor //빈 생성자를 만드는 어노테이션
+@NoArgsConstructor(access= AccessLevel.PROTECTED) //빈 생성자를 만드는 어노테이션
 public class User {
 
     @Id
@@ -24,8 +23,11 @@ public class User {
     private long id;
     private String mail;
     private String password;
-    private String level;
-    private int problem_count;
+    @Enumerated(EnumType.STRING)
+    private LevelProblemType level; // PLATINUM,GOLD,SILVER,BRONZE
+    private int problem_count; //받을 문제 수
+    // 지금 몇번까지 받았는지?
+    private int problem_current;
 
     private String token;
 
@@ -37,12 +39,13 @@ public class User {
 
     @OneToMany(mappedBy = "user")
     private List<Comment> comments = new ArrayList<>();
-
-    public User(String mail, String password, String level, int problem_count) {
+    @Builder
+    public User(String mail, String password, LevelProblemType level, int problem_count ,int problem_current) {
         this.mail = mail;
         this.password = password;
         this.level = level;
         this.problem_count = problem_count;
+        this.problem_current = problem_current;
         this.token= UUID.randomUUID().toString();
     }
 }

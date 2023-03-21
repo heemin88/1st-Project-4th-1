@@ -36,7 +36,7 @@ public class Board {
 
 
     @Enumerated(EnumType.STRING)
-    private com.backend.back.Domain.board.BoardType status; // Question,
+    private BoardType status; // Question,
 
     public Board(User user, String title, String description, LocalDateTime created_date, LocalDateTime modified_date, Integer view_count) {
         this.user = user;
