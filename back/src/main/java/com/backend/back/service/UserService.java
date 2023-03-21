@@ -64,5 +64,9 @@ public class UserService{
     public List<User> findAll() {
         return userRepository.findAll();
     }
+
+    public User findOne(String token) {
+        return userRepository.findByToken(token);
+    }
 }
 

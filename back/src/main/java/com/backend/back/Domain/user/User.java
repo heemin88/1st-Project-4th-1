@@ -10,6 +10,7 @@ import lombok.Setter;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.UUID;
 
 @Entity
 @Getter
@@ -26,6 +27,8 @@ public class User {
     private String level;
     private int problem_count;
 
+    private String token;
+
     @OneToMany(mappedBy = "user")
     private List<Problem> problems = new ArrayList<>();
 
@@ -40,5 +43,6 @@ public class User {
         this.password = password;
         this.level = level;
         this.problem_count = problem_count;
+        this.token= UUID.randomUUID().toString();
     }
 }

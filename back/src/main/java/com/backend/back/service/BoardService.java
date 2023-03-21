@@ -3,11 +3,15 @@ package com.backend.back.service;
 import com.backend.back.Domain.board.Board;
 import com.backend.back.Domain.comment.Comment;
 import com.backend.back.Domain.user.User;
+import com.backend.back.api.dto.BoardDeleteRequest;
+import com.backend.back.api.dto.BoardModifyRequest;
 import com.backend.back.repository.BoardRepository;
+import com.backend.back.repository.UserRepository;
 import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.io.IOException;
 import java.util.List;
 import java.util.Optional;
 
@@ -17,6 +21,8 @@ import java.util.Optional;
 public class BoardService {
 
     private final BoardRepository boardRepository;
+
+    private final UserRepository userRepository;
 
     /**
      *
@@ -39,17 +45,35 @@ public class BoardService {
      *
      * 게시물 삭제 Service
      */
-    public void delete_Board(Board board) {
-        List<Comment> commentList = board.getCommentList();
-        commentList.clear();;
+    public void delete_Board(Board board, BoardDeleteRequest request) {
 
-        User user = board.getUser();
-        List<Board> posts = user.getPosts();
-        posts.remove(board);
+        if (board.getUser().getToken().equals(request.getToken())) {
 
-        boardRepository.delete(board);
+            List<Comment> commentList = board.getCommentList();
+            commentList.clear();
+
+            User user = board.getUser();
+            List<Board> posts = user.getPosts();
+            posts.remove(board);
+
+            boardRepository.delete(board);
+        }
     }
 
+
+    /**
+     * 게시물 수정 Service
+     */
+
+    public void updateBoard(Long id,BoardModifyRequest request) throws IOException {
+
+        Board boardById = boardRepository.findBoardById(id);
+
+        if(request.getToken().equals(boardById.getUser().getToken())) {
+            boardById.modify(request.getTitle(), request.getDescription());
+        }
+
+    }
 
     /**
      *

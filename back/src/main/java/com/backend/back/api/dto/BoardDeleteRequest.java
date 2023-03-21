@@ -3,5 +3,6 @@ package com.backend.back.api.dto;
 import lombok.Data;
 
 @Data
-public class boardResponse {
+public class BoardDeleteRequest {
+    private String token;
 }
