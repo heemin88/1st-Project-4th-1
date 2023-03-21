@@ -1,6 +1,6 @@
-package com.backend.back.Domain.problem;
+package com.backend.back.domain.problem;
 
-import com.backend.back.Domain.user.User;
+import com.backend.back.domain.user.User;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import jakarta.persistence.*;
 import lombok.Builder;
@@ -9,7 +9,6 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import java.time.LocalDate;
-import java.time.LocalDateTime;
 
 @Entity
 @Getter @Setter

@@ -1,8 +1,8 @@
 package com.backend.back.service;
 
-import com.backend.back.Domain.board.Board;
-import com.backend.back.Domain.comment.Comment;
-import com.backend.back.Domain.user.User;
+import com.backend.back.domain.board.Board;
+import com.backend.back.domain.comment.Comment;
+import com.backend.back.domain.user.User;
 import com.backend.back.api.dto.board.BoardDeleteRequest;
 import com.backend.back.api.dto.board.BoardModifyRequest;
 import com.backend.back.repository.BoardRepository;
@@ -64,14 +64,14 @@ public class BoardService {
      * 게시물 수정 Service
      */
 
-    public void updateBoard(Long id,BoardModifyRequest request) throws IOException {
+    public Board updateBoard(Long id,BoardModifyRequest request) throws IOException {
 
         Board boardById = boardRepository.findBoardById(id);
 
         if(request.getToken().equals(boardById.getUser().getToken())) {
             boardById.modify(request.getTitle(), request.getDescription());
         }
-
+        return boardById;
     }
 
     /**

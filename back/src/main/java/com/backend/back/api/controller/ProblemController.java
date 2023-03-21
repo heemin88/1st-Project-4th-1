@@ -1,11 +1,9 @@
-package com.backend.back.controller;
+package com.backend.back.api.controller;
 
-import com.backend.back.Domain.problem.LevelProblem;
-import com.backend.back.Domain.problem.Problem;
-import com.backend.back.Domain.user.User;
+import com.backend.back.domain.problem.Problem;
+import com.backend.back.domain.user.User;
 import com.backend.back.model.response.CommonResult;
 import com.backend.back.model.response.ListResult;
-import com.backend.back.model.response.SingleResult;
 import com.backend.back.service.LevelProblemService;
 import com.backend.back.service.ProblemService;
 import com.backend.back.service.ResponseService;
@@ -13,7 +11,6 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
 import java.time.LocalDate;
-import java.time.LocalDateTime;
 import java.util.List;
 
 @RequiredArgsConstructor

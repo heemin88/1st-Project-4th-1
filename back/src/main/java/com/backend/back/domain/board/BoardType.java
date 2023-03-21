@@ -1,4 +1,4 @@
-package com.backend.back.Domain.board;
+package com.backend.back.domain.board;
 
 public enum BoardType {
 

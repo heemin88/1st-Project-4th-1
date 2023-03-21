@@ -1,9 +1,9 @@
-package com.backend.back.Domain.user;
+package com.backend.back.domain.user;
 
-import com.backend.back.Domain.board.Board;
-import com.backend.back.Domain.comment.Comment;
-import com.backend.back.Domain.problem.LevelProblemType;
-import com.backend.back.Domain.problem.Problem;
+import com.backend.back.domain.board.Board;
+import com.backend.back.domain.comment.Comment;
+import com.backend.back.domain.problem.LevelProblemType;
+import com.backend.back.domain.problem.Problem;
 import jakarta.persistence.*;
 import lombok.*;
 
