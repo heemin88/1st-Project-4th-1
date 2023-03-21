@@ -10,21 +10,24 @@ import lombok.Setter;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.UUID;
 
 @Entity
 @Getter
 @Setter
 @NoArgsConstructor //빈 생성자를 만드는 어노테이션
-@Table(name = "user")
 public class User {
+
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name="user_id")
-    private long uid;
+    private long id;
     private String mail;
     private String password;
     private String level;
     private int problem_count;
+
+    private String token;
 
     @OneToMany(mappedBy = "user")
     private List<Problem> problems = new ArrayList<>();
@@ -35,8 +38,11 @@ public class User {
     @OneToMany(mappedBy = "user")
     private List<Comment> comments = new ArrayList<>();
 
-
-
-
-
+    public User(String mail, String password, String level, int problem_count) {
+        this.mail = mail;
+        this.password = password;
+        this.level = level;
+        this.problem_count = problem_count;
+        this.token= UUID.randomUUID().toString();
+    }
 }
