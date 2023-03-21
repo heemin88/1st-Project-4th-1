@@ -22,11 +22,10 @@ public class UserService{
      * User 회원가입 Service
      */
     @Transactional //변경
-    public Long join(User user) {
-
+    public User join(User user) {
         validateDuplicateMember(user); //중복회원검증
         userRepository.save(user);
-        return user.getId();
+        return user;
     }
 
     /**
@@ -48,8 +47,6 @@ public class UserService{
 
         List<Board> posts = user.getPosts();
         posts.clear();
-        ;
-
         userRepository.delete(user);
     }
 
