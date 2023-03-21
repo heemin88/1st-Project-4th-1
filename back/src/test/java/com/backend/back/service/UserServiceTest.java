@@ -6,6 +6,7 @@ import com.backend.back.repository.UserRepository;
 import jakarta.transaction.Transactional;
 import org.junit.Test;
 import org.junit.runner.RunWith;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.test.context.junit4.SpringRunner;
@@ -14,11 +15,10 @@ import static org.junit.jupiter.api.Assertions.*;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest(classes = BackApplication.class)
-@Transactional
 public class UserServiceTest {
-    @MockBean
+    @Autowired
     UserService userService;
-    @MockBean
+    @Autowired
     UserRepository userRepository;
 
     @Test
@@ -26,8 +26,12 @@ public class UserServiceTest {
         //Given
         User user = new User();
         user.setMail("asd@naver.com");
+        user.setLevel("1");
+        user.setPassword("1");
+        user.setProblem_count(1);
         // When
-        userRepository.save(user);
+        userService.join(user);
+        assertEquals(user.getMail(),"asd@naver.com");
     }
     @Test(expected = IllegalStateException.class) public void 중복_회원_예외() throws Exception {
         //Given
