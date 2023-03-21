@@ -2,15 +2,14 @@ package com.backend.back.api.Controller;
 
 
 import com.backend.back.Domain.board.Board;
+import com.backend.back.Domain.comment.Comment;
 import com.backend.back.Domain.user.User;
 import com.backend.back.api.ResponseDto;
-import com.backend.back.api.dto.BoardDeleteRequest;
-import com.backend.back.api.dto.BoardModifyRequest;
-import com.backend.back.api.dto.BoardRequest;
-import com.backend.back.api.dto.BoardResponse;
+import com.backend.back.api.dto.board.*;
+import com.backend.back.api.dto.comment.CommentResponse;
 import com.backend.back.service.BoardService;
+import com.backend.back.service.CommentService;
 import com.backend.back.service.UserService;
-import jdk.jfr.Frequency;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.BindingResult;
@@ -30,6 +29,7 @@ public class BoardApiController {
     private final UserService userService;
     private final BoardService boardService;
 
+    private final CommentService commentService;
 
     /**
      * 게시물 등록
@@ -67,12 +67,19 @@ public class BoardApiController {
      */
 
     @GetMapping("/{id}")
-    public ResponseEntity<BoardResponse> getBoard(@PathVariable("id") Long id) {
+    public ResponseEntity<BoardCommentResponse> getBoard(@PathVariable("id") Long id) {
         Board board_byId = boardService.findBoard_byId(id);
 
-        return ResponseEntity.ok().body(new BoardResponse(board_byId));
+        List<Comment> boardComment = commentService.find_boardComment(board_byId);
+        List<CommentResponse> commentResponses=boardComment.stream().map(CommentResponse::toDto).collect(Collectors.toList());
+
+        return ResponseEntity.ok().body(new BoardCommentResponse(board_byId,commentResponses));
     }
 
+    /**
+     *
+     * 게시물 수정
+     */
     @PutMapping("/modify/{id}")
     public ResponseEntity<ResponseDto> modifyBoard(@PathVariable("id") Long id,
                                                    @Validated @RequestBody BoardModifyRequest request,
@@ -86,6 +93,10 @@ public class BoardApiController {
         return ResponseEntity.ok().body(new ResponseDto("수정이 완료 되었습니다."));
     }
 
+    /**
+     *
+     * 게시물 삭제
+     */
     @PostMapping("/delete/{id}")
     public ResponseEntity<ResponseDto> deleteBoard(@PathVariable("id") Long id,
                                                    @RequestBody BoardDeleteRequest request) {

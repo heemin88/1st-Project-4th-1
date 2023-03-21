@@ -1,7 +1,9 @@
-package com.backend.back.api.dto;
+package com.backend.back.api.dto.board;
 
 import com.backend.back.Domain.board.Board;
 import lombok.Data;
+
+import java.util.List;
 
 @Data
 public class BoardResponse {
@@ -13,10 +15,11 @@ public class BoardResponse {
     private Integer view_count;
 
     public BoardResponse(Board board) {
-        this.title = title;
-        this.description = description;
-        this.view_count = view_count;
+        this.title = board.getTitle();
+        this.description = board.getDescription();
+        this.view_count = board.getView_count();
     }
+
 
     public static BoardResponse toDto(Board board) {
         return new BoardResponse(board);

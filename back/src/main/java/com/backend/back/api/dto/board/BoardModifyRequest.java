@@ -1,4 +1,4 @@
-package com.backend.back.api.dto;
+package com.backend.back.api.dto.board;
 
 import jakarta.validation.constraints.NotBlank;
 import lombok.Data;
