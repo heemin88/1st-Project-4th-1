@@ -3,19 +3,19 @@ package com.backend.back.service;
 import com.backend.back.Domain.problem.LevelProblem;
 import com.backend.back.Domain.problem.LevelProblemType;
 import com.backend.back.Domain.problem.Problem;
-import com.backend.back.repository.LevelProblemRepository;
+
+import com.backend.back.repository.ProblemLevelRepository;
 import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
-
-import java.util.ArrayList;
 import java.util.List;
 
 @Service
 @RequiredArgsConstructor
 @Transactional
 public class LevelProblemService {
-    final private LevelProblemRepository levelProblemRepository;
+
+    final private ProblemLevelRepository levelProblemRepository;
 
     /**
      * 문제 등록 Service
@@ -47,7 +47,7 @@ public class LevelProblemService {
         return levelProblem.getId();
     }
     /**
-     * level별 문제 조회 서비스
+     * level 문제 조회 서비스
      */
     public List<Problem> findLevelProblemByLevel(LevelProblemType level){
         return levelProblemRepository.findLevelProblemByLevel(level);
