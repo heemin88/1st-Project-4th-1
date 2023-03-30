@@ -1,10 +1,9 @@
-package com.backend.back.api.Controller;
+package com.backend.back.api.controller;
 
 
 import com.backend.back.domain.board.Board;
 import com.backend.back.domain.comment.Comment;
 import com.backend.back.domain.user.User;
-import com.backend.back.api.ResponseDto;
 import com.backend.back.api.dto.comment.CommentDeleteRequest;
 import com.backend.back.api.dto.comment.CommentModifyRequest;
 import com.backend.back.api.dto.comment.CommentRequest;
@@ -14,14 +13,12 @@ import com.backend.back.service.CommentService;
 import com.backend.back.service.ResponseService;
 import com.backend.back.service.UserService;
 import lombok.RequiredArgsConstructor;
-import org.springframework.http.ResponseEntity;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
 import java.io.IOException;
 import java.time.LocalDate;
-import java.time.LocalDateTime;
 
 @RestController
 @RequiredArgsConstructor
