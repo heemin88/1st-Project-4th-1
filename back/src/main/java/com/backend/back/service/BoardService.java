@@ -31,6 +31,7 @@ public class BoardService {
     @Transactional
     public  Long register_Board(User user,Board board) {
         board.setUser(user);
+
         List<Board> posts = user.getPosts();
         posts.add(board);
 

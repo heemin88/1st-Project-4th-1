@@ -4,6 +4,7 @@ import com.backend.back.domain.board.Board;
 import com.backend.back.domain.comment.Comment;
 import com.backend.back.domain.problem.LevelProblemType;
 import com.backend.back.domain.problem.Problem;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -34,11 +35,12 @@ public class User {
     @OneToMany(mappedBy = "user")
     private List<Problem> problems = new ArrayList<>();
 
-    @OneToMany(mappedBy = "user")
+    @OneToMany(mappedBy = "user",fetch = FetchType.LAZY)
     private List<Board> posts = new ArrayList<>();
 
     @OneToMany(mappedBy = "user")
     private List<Comment> comments = new ArrayList<>();
+
     @Builder
     public User(String mail, String password, LevelProblemType level, int problem_count ,int problem_current) {
         this.mail = mail;

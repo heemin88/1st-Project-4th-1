@@ -13,6 +13,7 @@ public class BoardCommentResponse {
 
     private String description;
 
+
     private Integer view_count;
 
     private List<CommentResponse> commentList;

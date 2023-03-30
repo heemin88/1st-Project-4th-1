@@ -2,6 +2,7 @@ package com.backend.back.domain.board;
 
 import com.backend.back.domain.comment.Comment;
 import com.backend.back.domain.user.User;
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.Getter;
@@ -23,9 +24,12 @@ public class Board {
     @Column(name="board_id")
     private Long id;
 
+
     @JsonIgnore
     @ManyToOne(fetch = FetchType.LAZY)
+//    @JoinColumn(name="user_user_id")
     private User user;
+
 
     @JsonIgnore
     @OneToMany(mappedBy = "board",cascade = CascadeType.ALL)
