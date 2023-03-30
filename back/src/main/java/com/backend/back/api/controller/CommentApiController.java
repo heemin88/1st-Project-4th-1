@@ -1,4 +1,4 @@
-package com.backend.back.api.Controller;
+package com.backend.back.api.controller;
 
 
 import com.backend.back.domain.board.Board;
@@ -26,10 +26,10 @@ import java.time.LocalDateTime;
 @RequestMapping("/api/comment")
 public class CommentApiController {
 
-    private CommentService commentService;
+    private final CommentService commentService;
 
-    private UserService userService;
-    private BoardService boardService;
+    private final UserService userService;
+    private final BoardService boardService;
 
     /**
      * 댓글 작성
