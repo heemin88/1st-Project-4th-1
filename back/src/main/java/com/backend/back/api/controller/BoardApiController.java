@@ -88,16 +88,16 @@ public class BoardApiController {
      * 게시물 수정
      */
     @PutMapping("/modify/{id}")
-    public ResponseEntity<ResponseDto> modifyBoard(@PathVariable("id") Long id,
+    public CommonResult modifyBoard(@PathVariable("id") Long id,
                                                    @Validated @RequestBody BoardModifyRequest request,
                                                    BindingResult bindingResult) throws IOException {
 
         if(bindingResult.hasErrors()) {
-            return ResponseEntity.badRequest().body(new ResponseDto("정보를 다시 입력하세요."));
+            return responseService.getFailResult();
         }
 
         boardService.updateBoard(id,request);
-        return ResponseEntity.ok().body(new ResponseDto("수정이 완료 되었습니다."));
+        return responseService.getSuccessResult();
     }
 
     /**

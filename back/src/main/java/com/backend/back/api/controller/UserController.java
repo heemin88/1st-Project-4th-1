@@ -43,7 +43,7 @@ public class UserController {
     * 유저 회원가입
     */
     @PostMapping(value="/user")
-    public SingleResult<User> save(@RequestParam String mail, @RequestParam String password, @RequestParam LevelProblemType level){
+    public SingleResult<UserResponse> save(@RequestParam String mail, @RequestParam String password, @RequestParam LevelProblemType level){
         User user = User.builder()
                 .mail(mail)
                 .level(level)
@@ -51,7 +51,9 @@ public class UserController {
                 .problem_count(0)
                 .problem_current(0)
                 .build();
-        return responseService.getSingleResult(userService.join(user));
+        userService.join(user);
+        UserResponse userResponse = UserResponse.toDto(user);
+        return responseService.getSingleResult(userResponse);
     }
     /**
      * 회원 삭제
