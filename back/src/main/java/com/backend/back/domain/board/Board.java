@@ -2,11 +2,13 @@ package com.backend.back.domain.board;
 
 import com.backend.back.domain.comment.Comment;
 import com.backend.back.domain.user.User;
+import com.fasterxml.jackson.annotation.JsonFormat;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
@@ -30,15 +32,18 @@ public class Board {
 
     private String title;
     private String description;
-    private LocalDateTime created_date;
-    private LocalDateTime modified_date;
+    @JsonFormat(shape = JsonFormat.Shape.STRING,pattern = "yyyy-MM-dd",timezone = "Asia/Seoul")
+    private LocalDate created_date;
+
+    @JsonFormat(shape = JsonFormat.Shape.STRING,pattern = "yyyy-MM-dd",timezone = "Asia/Seoul")
+    private LocalDate modified_date;
     private Integer view_count;
 
 
     @Enumerated(EnumType.STRING)
     private BoardType status; // Question,
 
-    public Board(User user, String title, String description, LocalDateTime created_date, LocalDateTime modified_date, Integer view_count) {
+    public Board(User user, String title, String description, LocalDate created_date, LocalDate modified_date, Integer view_count) {
         this.user = user;
         this.title = title;
         this.description = description;
@@ -50,6 +55,6 @@ public class Board {
     public void modify(String title,String description) {
         this.title=title;
         this.description=description;
-        this.modified_date=LocalDateTime.now();
+        this.modified_date=LocalDate.now();
     }
 }

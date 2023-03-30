@@ -1,6 +1,7 @@
 package com.backend.back.api.controller;
 
 import com.backend.back.Auth.GoogleOAuth;
+import com.backend.back.api.dto.user.UserResponse;
 import com.backend.back.domain.problem.LevelProblemType;
 import com.backend.back.domain.user.User;
 import com.backend.back.model.response.CommonResult;
@@ -14,6 +15,9 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
 import java.io.IOException;
+import java.util.List;
+import java.util.stream.Collectors;
+
 
 @RequiredArgsConstructor
 @RestController // 결과값을 JSON으로 출력함
@@ -27,21 +31,25 @@ public class UserController {
      * 회원 리스트 조회
      */
     @GetMapping(value="/users")
-    public ListResult<User> findAllUser(){
-        return responseService.getListResult(userService.findAll());
+    public ListResult<UserResponse> findAllUser(){
+        List<User> users = userService.findAll();
+        List<UserResponse> userResponseList = users.stream().map(UserResponse::toDto).collect(Collectors.toList());
+        return responseService.getListResult(userResponseList);
     }
     /**
      * 회원 단건 조회
      */
     @GetMapping(value="/user/{msrl}")
-    public SingleResult<User> findUserById(@PathVariable long msrl){
-        return responseService.getSingleResult(userService.findOne(msrl).orElse(null));
+    public SingleResult<UserResponse> findUserById(@PathVariable long msrl){
+        User user = userService.findOne(msrl).orElse(null);
+        UserResponse userResponse = UserResponse.toDto(user);
+        return responseService.getSingleResult(userResponse);
     }
     /**
     * 유저 회원가입
     */
     @PostMapping(value="/user")
-    public SingleResult<User> save(@RequestParam String mail, @RequestParam String password, @RequestParam LevelProblemType level){
+    public SingleResult<UserResponse> save(@RequestParam String mail, @RequestParam String password, @RequestParam LevelProblemType level){
         User user = User.builder()
                 .mail(mail)
                 .level(level)
@@ -49,7 +57,9 @@ public class UserController {
                 .problem_count(0)
                 .problem_current(0)
                 .build();
-        return responseService.getSingleResult(userService.join(user));
+        userService.join(user);
+        UserResponse userResponse = UserResponse.toDto(user);
+        return responseService.getSingleResult(userResponse);
     }
     /**
      * 회원 삭제
