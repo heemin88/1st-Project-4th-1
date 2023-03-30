@@ -2,7 +2,6 @@ package com.backend.back.domain.comment;
 
 import com.backend.back.domain.board.Board;
 import com.backend.back.domain.user.User;
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;

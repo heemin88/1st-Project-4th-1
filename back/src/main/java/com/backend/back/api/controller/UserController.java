@@ -1,4 +1,4 @@
-package com.backend.back.api.controller;
+package com.backend.back.api.Controller;
 
 import com.backend.back.domain.problem.LevelProblemType;
 import com.backend.back.domain.user.User;
@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.*;
 
 @RequiredArgsConstructor
 @RestController // 결과값을 JSON으로 출력함
+@RequestMapping("/api")
 public class UserController {
     private final UserService userService;
     private final ResponseService responseService; // 결과를 처리할 서비스
