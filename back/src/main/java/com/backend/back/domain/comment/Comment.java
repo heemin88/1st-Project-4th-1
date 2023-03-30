@@ -2,11 +2,13 @@ package com.backend.back.domain.comment;
 
 import com.backend.back.domain.board.Board;
 import com.backend.back.domain.user.User;
+import com.fasterxml.jackson.annotation.JsonFormat;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 
 @Entity
@@ -28,16 +30,21 @@ public class Comment {
     @JoinColumn(name="user_id")
     private User user;
     private String description;
-    private LocalDateTime created_time;
-    private LocalDateTime modified_date;
 
-    public Comment(String description, LocalDateTime created_time) {
+
+    @JsonFormat(shape = JsonFormat.Shape.STRING,pattern = "yyyy-MM-dd",timezone = "Asia/Seoul")
+    private LocalDate created_time;
+
+    @JsonFormat(shape = JsonFormat.Shape.STRING,pattern = "yyyy-MM-dd",timezone = "Asia/Seoul")
+    private LocalDate modified_date;
+
+    public Comment(String description, LocalDate created_time) {
         this.description = description;
         this.created_time = created_time;
     }
 
     public void modify(String description) {
         this.description=description;
-        this.modified_date=LocalDateTime.now();
+        this.modified_date=LocalDate.now();
     }
 }
