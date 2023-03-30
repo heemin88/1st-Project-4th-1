@@ -1,6 +1,6 @@
 package com.backend.back.api.dto.board;
 
-import com.backend.back.Domain.board.Board;
+import com.backend.back.domain.board.Board;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 import lombok.Data;

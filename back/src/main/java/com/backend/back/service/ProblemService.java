@@ -1,8 +1,7 @@
 package com.backend.back.service;
 
-import com.backend.back.Domain.problem.LevelProblem;
-import com.backend.back.Domain.problem.Problem;
-import com.backend.back.Domain.user.User;
+import com.backend.back.domain.problem.Problem;
+import com.backend.back.domain.user.User;
 import com.backend.back.repository.ProblemRepository;
 import com.backend.back.repository.UserRepository;
 import jakarta.transaction.Transactional;
@@ -10,7 +9,6 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDate;
-import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Optional;
 

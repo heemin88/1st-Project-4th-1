@@ -1,7 +1,7 @@
-package com.backend.back.Domain.board;
+package com.backend.back.domain.board;
 
-import com.backend.back.Domain.comment.Comment;
-import com.backend.back.Domain.user.User;
+import com.backend.back.domain.comment.Comment;
+import com.backend.back.domain.user.User;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;

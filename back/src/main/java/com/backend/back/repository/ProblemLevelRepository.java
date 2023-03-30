@@ -1,8 +1,8 @@
 package com.backend.back.repository;
 
-import com.backend.back.Domain.problem.LevelProblem;
-import com.backend.back.Domain.problem.LevelProblemType;
-import com.backend.back.Domain.problem.Problem;
+import com.backend.back.domain.problem.LevelProblem;
+import com.backend.back.domain.problem.LevelProblemType;
+import com.backend.back.domain.problem.Problem;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

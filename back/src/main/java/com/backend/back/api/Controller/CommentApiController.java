@@ -1,12 +1,10 @@
 package com.backend.back.api.Controller;
 
 
-import com.backend.back.Domain.board.Board;
-import com.backend.back.Domain.comment.Comment;
-import com.backend.back.Domain.user.User;
+import com.backend.back.domain.board.Board;
+import com.backend.back.domain.comment.Comment;
+import com.backend.back.domain.user.User;
 import com.backend.back.api.ResponseDto;
-import com.backend.back.api.dto.board.BoardDeleteRequest;
-import com.backend.back.api.dto.board.BoardModifyRequest;
 import com.backend.back.api.dto.comment.CommentDeleteRequest;
 import com.backend.back.api.dto.comment.CommentModifyRequest;
 import com.backend.back.api.dto.comment.CommentRequest;

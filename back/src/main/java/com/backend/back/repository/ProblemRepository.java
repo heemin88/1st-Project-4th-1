@@ -1,13 +1,12 @@
 package com.backend.back.repository;
 
-import com.backend.back.Domain.problem.LevelProblem;
-import com.backend.back.Domain.problem.Problem;
-import com.backend.back.Domain.user.User;
+import com.backend.back.domain.problem.LevelProblem;
+import com.backend.back.domain.problem.Problem;
+import com.backend.back.domain.user.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
 import java.time.LocalDate;
-import java.time.LocalDateTime;
 import java.util.List;
 
 @Repository

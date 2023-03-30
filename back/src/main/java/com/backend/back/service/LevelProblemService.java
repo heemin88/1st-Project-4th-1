@@ -1,8 +1,8 @@
 package com.backend.back.service;
 
-import com.backend.back.Domain.problem.LevelProblem;
-import com.backend.back.Domain.problem.LevelProblemType;
-import com.backend.back.Domain.problem.Problem;
+import com.backend.back.domain.problem.LevelProblem;
+import com.backend.back.domain.problem.LevelProblemType;
+import com.backend.back.domain.problem.Problem;
 
 import com.backend.back.repository.ProblemLevelRepository;
 import jakarta.transaction.Transactional;

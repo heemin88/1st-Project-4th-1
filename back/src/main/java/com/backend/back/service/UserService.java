@@ -1,8 +1,8 @@
 package com.backend.back.service;
 
-import com.backend.back.Domain.board.Board;
-import com.backend.back.Domain.comment.Comment;
-import com.backend.back.Domain.user.User;
+import com.backend.back.domain.board.Board;
+import com.backend.back.domain.comment.Comment;
+import com.backend.back.domain.user.User;
 import com.backend.back.repository.UserRepository;
 import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
