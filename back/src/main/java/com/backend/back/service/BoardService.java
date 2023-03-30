@@ -64,14 +64,14 @@ public class BoardService {
      * 게시물 수정 Service
      */
 
-    public Board updateBoard(Long id,BoardModifyRequest request) throws IOException {
+    public void updateBoard(Long id,BoardModifyRequest request) throws IOException {
 
         Board boardById = boardRepository.findBoardById(id);
 
         if(request.getToken().equals(boardById.getUser().getToken())) {
             boardById.modify(request.getTitle(), request.getDescription());
         }
-        return boardById;
+
     }
 
     /**
