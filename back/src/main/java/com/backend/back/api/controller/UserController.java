@@ -1,4 +1,4 @@
-package com.backend.back.api.Controller;
+package com.backend.back.api.controller;
 
 import com.backend.back.domain.problem.LevelProblemType;
 import com.backend.back.domain.user.User;
