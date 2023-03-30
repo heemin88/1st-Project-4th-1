@@ -42,6 +42,7 @@ public class CommentApiController {
             return ResponseEntity.ok().body(new ResponseDto("다시 입력해주세요."));
         }
 
+
         User one = userService.findOne(request.getToken());
         Board board_byId = boardService.findBoard_byId(request.getBoardId());
         Comment comment=new Comment(request.getDescription(), LocalDateTime.now());

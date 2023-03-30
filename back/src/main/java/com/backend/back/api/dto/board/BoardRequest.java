@@ -5,6 +5,7 @@ import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 import lombok.Data;
 
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 
 @Data
@@ -21,7 +22,7 @@ public class BoardRequest {
         Board board=new Board();
         board.setTitle(title);
         board.setDescription(description);
-        board.setCreated_date(LocalDateTime.now());
+        board.setCreated_date(LocalDate.now());
 
         return board;
     }
