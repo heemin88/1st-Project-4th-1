@@ -1,4 +1,4 @@
-package com.backend.back.controller;
+package com.backend.back.api.Controller;
 
 import com.backend.back.Domain.problem.LevelProblem;
 import com.backend.back.Domain.problem.Problem;
@@ -18,6 +18,7 @@ import java.util.List;
 
 @RequiredArgsConstructor
 @RestController // 결과값을 JSON으로 출력함
+@RequestMapping("/api")
 public class ProblemController {
     private final ProblemService problemService;
     private final LevelProblemService levelProblemService;
@@ -39,9 +40,9 @@ public class ProblemController {
     /**
      * 유저로 문제 조회
      */
-    @GetMapping(value = "/problems")
-    public ListResult<Problem> findAllProblem(User user){
-        return responseService.getListResult(problemService.findProblemByUser(user));
+    @GetMapping(value = "/problems/{msrl}")
+    public ListResult<Problem> findAllProblem(@PathVariable long msrl){
+        return responseService.getListResult(problemService.findProblemByUser(msrl));
     }
     /**
      * 받은 날짜 기준 문자조회 ( 현재 날짜 생성해서 인자로 전달 )

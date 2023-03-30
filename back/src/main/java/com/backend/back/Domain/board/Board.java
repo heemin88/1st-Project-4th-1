@@ -46,4 +46,10 @@ public class Board {
         this.modified_date = modified_date;
         this.view_count = view_count;
     }
+
+    public void modify(String title,String description) {
+        this.title=title;
+        this.description=description;
+        this.modified_date=LocalDateTime.now();
+    }
 }

@@ -3,11 +3,15 @@ package com.backend.back.service;
 import com.backend.back.Domain.board.Board;
 import com.backend.back.Domain.comment.Comment;
 import com.backend.back.Domain.user.User;
+import com.backend.back.api.dto.board.BoardModifyRequest;
+import com.backend.back.api.dto.comment.CommentModifyRequest;
 import com.backend.back.repository.CommentRepository;
 import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.io.IOException;
+import java.lang.reflect.Member;
 import java.util.List;
 
 @Service
@@ -41,15 +45,30 @@ public class CommentService {
      *
      * 댓글 삭제 Service
      */
-    public void delete_Comment(User user,Board board,Comment comment) {
+    public void delete_Comment(User user,Board board,Comment comment) throws IOException {
 
-        List<Comment> comments = user.getComments();
-        comments.remove(comment);
+        if(user.getToken().equals(comment.getUser().getToken())) {
+            List<Comment> comments = user.getComments();
+            comments.remove(comment);
 
-        List<Comment> commentList = board.getCommentList();
-        commentList.remove(comment);
+            List<Comment> commentList = board.getCommentList();
+            commentList.remove(comment);
 
-        commentRepository.delete(comment);
+            commentRepository.delete(comment);
+        }
+    }
+
+    /**
+     *
+     * 댓글 수정 Service
+     */
+    public void modify_Comment(Long id, CommentModifyRequest request) throws IOException {
+
+        Comment commentById = commentRepository.findCommentById(id);
+
+        if(commentById.getUser().getToken().equals(request.getToken())) {
+            commentById.modify(request.getDescription());
+        }
     }
 
     /**
@@ -63,6 +82,11 @@ public class CommentService {
     public List<Comment> find_userComment(User user) {
         return commentRepository.findCommentsByUser(user);
     }
+
+    public Comment findOne(Long id) {
+        return commentRepository.findCommentById(id);
+    }
+
 
 
 }

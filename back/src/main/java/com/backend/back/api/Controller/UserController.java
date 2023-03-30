@@ -1,4 +1,4 @@
-package com.backend.back.controller;
+package com.backend.back.api.Controller;
 
 import com.backend.back.Domain.problem.LevelProblemType;
 import com.backend.back.Domain.user.User;
@@ -15,6 +15,7 @@ import java.util.List;
 
 @RequiredArgsConstructor
 @RestController // 결과값을 JSON으로 출력함
+@RequestMapping("/api")
 public class UserController {
     private final UserService userService;
     private final ResponseService responseService; // 결과를 처리할 서비스

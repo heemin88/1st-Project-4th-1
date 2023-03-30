@@ -27,8 +27,17 @@ public class Comment {
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name="user_id")
     private User user;
-
     private String description;
     private LocalDateTime created_time;
     private LocalDateTime modified_date;
+
+    public Comment(String description, LocalDateTime created_time) {
+        this.description = description;
+        this.created_time = created_time;
+    }
+
+    public void modify(String description) {
+        this.description=description;
+        this.modified_date=LocalDateTime.now();
+    }
 }

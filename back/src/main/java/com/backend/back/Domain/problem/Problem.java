@@ -2,6 +2,7 @@ package com.backend.back.Domain.problem;
 
 import com.backend.back.Domain.user.User;
 import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.Builder;
 import lombok.Getter;
@@ -21,10 +22,12 @@ public class Problem {
     @Column(name ="problem_id")
     private Long id;
 
+    @JsonIgnore
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name="user_id")
     private User user;
 
+    @JsonIgnore
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name="levelProblem_id")
     private LevelProblem levelProblem;

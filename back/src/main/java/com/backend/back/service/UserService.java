@@ -47,7 +47,7 @@ public class UserService{
 
         List<Board> posts = user.getPosts();
         posts.clear();
-        ;
+
 
         userRepository.delete(user);
     }
@@ -63,6 +63,10 @@ public class UserService{
 
     public List<User> findAll() {
         return userRepository.findAll();
+    }
+
+    public User findOne(String token) {
+        return userRepository.findByToken(token);
     }
 }
 

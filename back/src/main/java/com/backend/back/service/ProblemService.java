@@ -4,6 +4,7 @@ import com.backend.back.Domain.problem.LevelProblem;
 import com.backend.back.Domain.problem.Problem;
 import com.backend.back.Domain.user.User;
 import com.backend.back.repository.ProblemRepository;
+import com.backend.back.repository.UserRepository;
 import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -18,6 +19,7 @@ import java.util.Optional;
 @Transactional
 public class ProblemService {
     final private ProblemRepository problemRepository;
+    final private UserRepository userRepository;
 
     /**
      * 유저에 문제 등록 Service
@@ -59,8 +61,9 @@ public class ProblemService {
         return problemRepository.findProblemById(id);
     }
 
-    public List<Problem> findProblemByUser(User user) {
+    public List<Problem> findProblemByUser(Long uid) {
 
+        User user = userRepository.findById(uid).orElse(null);
         return problemRepository.findProblemByUser(user);
     }
 }

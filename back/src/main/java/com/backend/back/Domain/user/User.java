@@ -9,6 +9,7 @@ import lombok.*;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.UUID;
 
 @Entity
 @Getter
@@ -28,6 +29,8 @@ public class User {
     // 지금 몇번까지 받았는지?
     private int problem_current;
 
+    private String token;
+
     @OneToMany(mappedBy = "user")
     private List<Problem> problems = new ArrayList<>();
 
@@ -43,5 +46,6 @@ public class User {
         this.level = level;
         this.problem_count = problem_count;
         this.problem_current = problem_current;
+        this.token= UUID.randomUUID().toString();
     }
 }

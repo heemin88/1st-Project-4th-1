@@ -9,8 +9,9 @@ import org.springframework.stereotype.Repository;
 import java.util.List;
 
 @Repository
-public interface LevelProblemRepository extends JpaRepository<LevelProblem,Long> {
+public interface ProblemLevelRepository extends JpaRepository<LevelProblem,Long> {
 
     LevelProblem findLevelProblemById(Long id);
     List<Problem> findLevelProblemByLevel(LevelProblemType level);
+
 }
