@@ -77,6 +77,7 @@ public class BoardApiController {
     public SingleResult<BoardCommentResponse>getBoard(@PathVariable("id") Long id) {
         Board board_byId = boardService.findBoard_byId(id);
 
+        boardService.updateViewCnt(board_byId);
         List<Comment> boardComment = commentService.find_boardComment(board_byId);
         List<CommentResponse> commentResponses=boardComment.stream().map(CommentResponse::toDto).collect(Collectors.toList());
 

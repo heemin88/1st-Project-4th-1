@@ -76,6 +76,16 @@ public class BoardService {
 
     /**
      *
+     * 게시물 조회수 Service
+     */
+
+    public void updateViewCnt(Board board) {
+        Integer view_count = board.getView_count();
+        board.setView_count(view_count+1);
+    }
+
+    /**
+     *
      *
      * 공통 Service
      */
