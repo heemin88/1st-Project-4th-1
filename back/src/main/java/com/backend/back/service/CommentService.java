@@ -1,5 +1,6 @@
 package com.backend.back.service;
 
+import com.backend.back.api.dto.comment.CommentLikeRequest;
 import com.backend.back.domain.board.Board;
 import com.backend.back.domain.comment.Comment;
 import com.backend.back.domain.user.User;
@@ -69,6 +70,13 @@ public class CommentService {
         }
     }
 
+    /**
+     *
+     * 댓글 좋아요 Service
+     */
+    public void update_likeCount(CommentLikeRequest commentLikeRequest) {
+        String token = commentLikeRequest.getToken();
+    }
     /**
      * 공통 Service
      */

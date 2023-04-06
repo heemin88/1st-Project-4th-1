@@ -1,6 +1,12 @@
 package com.backend.back.domain.board;
 
-public enum BoardType {
+import com.fasterxml.jackson.annotation.JsonCreator;
 
-    QUESTION,ASK
+public enum BoardType {
+    QUESTION,ASK,DAILY;
+
+    @JsonCreator
+    public static BoardType from(String s) {
+        return BoardType.valueOf(s.toUpperCase());
+    }
 }

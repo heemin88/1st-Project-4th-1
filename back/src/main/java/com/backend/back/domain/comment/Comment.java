@@ -26,10 +26,14 @@ public class Comment {
     @JoinColumn(name="board_id")
     private Board board;
 
+    
+
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name="user_id")
     private User user;
     private String description;
+
+    private Integer like_Count;
 
 
     @JsonFormat(shape = JsonFormat.Shape.STRING,pattern = "yyyy-MM-dd",timezone = "Asia/Seoul")
@@ -41,6 +45,7 @@ public class Comment {
     public Comment(String description, LocalDate created_time) {
         this.description = description;
         this.created_time = created_time;
+        this.like_Count=0;
     }
 
     public void modify(String description) {
