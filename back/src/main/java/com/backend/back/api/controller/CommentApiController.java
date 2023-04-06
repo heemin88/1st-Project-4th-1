@@ -30,8 +30,8 @@ public class CommentApiController {
 
     private final UserService userService;
     private final BoardService boardService;
-
     private final ResponseService responseService;
+
 
     /**
      * 댓글 작성
